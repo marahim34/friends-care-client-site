@@ -21,7 +21,8 @@ const Header = () => {
             user?.uid ?
                 <>
                     <li> <Link to='/logout'>Add Services</Link> </li>
-                    <li> <Link to='/logout'>My Reviews</Link> </li>
+                    <li> <Link to='/my-comments'>My Reviews</Link> </li>
+                    <li> <Link>{user?.displayName ? user?.displayName : user?.email} </Link></li>
                     <li> <button onClick={handleLogOut}>Log out</button> </li>
 
                 </> :
@@ -41,7 +42,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">
-                    <Link to='/'><img src={logo} alt="" width={100} /></Link>
+                    <Link to='/'><img src={logo} alt="" width={100} className='h-4/5' /></Link>
 
                 </a>
             </div>

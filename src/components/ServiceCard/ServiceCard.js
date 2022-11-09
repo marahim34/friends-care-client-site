@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
     const { _id, picture, serviceName, price, rating, about } = service;
@@ -7,10 +8,18 @@ const ServiceCard = ({ service }) => {
             <figure><img src={picture} className='h-44 w-full' alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title h-12 items-start">{serviceName}</h2>
-                <p className='h-16'>{about.slice(0, 100)}... <a className="link link-primary">Read More</a> </p>
-                <p>Pricing: <small>€</small> <strong>{price}</strong> <small>/hr</small> </p>
+                <p className='h-16'>{about.slice(0, 100)}... <Link to='/service/:id' className="link link-primary">Read More</Link> </p>
+                <div className='flex justify-between'>
+                    <div>
+                        <p>Pricing: <small>€</small> <strong>{price}</strong> <small>/hr</small> </p>
+                    </div>
+                    <div className='rating items-center'>
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <p>{rating}</p>
+                    </div>
+                </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-success"> <Link to={`/services/${_id}`}>Details</Link> </button>
                 </div>
             </div>
         </div>
