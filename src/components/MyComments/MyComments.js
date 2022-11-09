@@ -50,19 +50,17 @@ const MyComments = () => {
 
                                 </label>
                             </th>
-                            <th>Name Used</th>
-                            <th>email</th>
-                            <th>message</th>
+                            <th>Name</th>
+                            <th>Job</th>
+                            <th>Favorite Color</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myReviews.map(myReview => <MyCommentsCard key={myReview._id} myReview={myReview} handleDelete={handleDelete}></MyCommentsCard>)
+                            myReviews.map(myReview => <MyCommentsCard key={myReview.key} myReview={myReview} handleDelete={handleDelete} ></MyCommentsCard>)
                         }
                     </tbody>
-
-
                 </table>
             </div>
         </div>

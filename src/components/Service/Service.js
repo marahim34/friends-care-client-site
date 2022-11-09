@@ -9,8 +9,7 @@ const Service = () => {
                 <div className="flex flex-wrap">
                     <div className="grow-0 shrink-0 basis-auto w-full lg:w-5/12 mb-12 lg:mb-0">
                         <div className="flex lg:py-12">
-                            <img src={picture} className="w-full rounded-lg shadow-lg"
-                                id="cta-img-nml-50" alt="" />
+                            <img src={picture} className="w-full rounded-lg shadow-lg" id="cta-img-nml-50" alt="" />
                         </div>
                     </div>
                     <div className="grow-0 shrink-0 basis-auto w-full lg:w-7/12">

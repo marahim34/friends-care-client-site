@@ -1,11 +1,12 @@
 import React from 'react';
+import { PhotoProvider } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
     const { _id, picture, serviceName, price, rating, about } = service;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure><img src={picture} className='h-44 w-full' alt="Shoes" /></figure>
+            <PhotoProvider src={picture}><img src={picture} className='h-44 w-full' alt="Shoes" /></PhotoProvider>
             <div className="card-body">
                 <h2 className="card-title h-12 items-start">{serviceName}</h2>
                 <p className='h-16'>{about.slice(0, 100)}... <Link to='/service/:id' className="link link-primary">Read More</Link> </p>

@@ -15,8 +15,6 @@ const Header = () => {
     const menuItems = <>
         <li> <Link to='/'>Home</Link> </li>
         <li> <Link to='/services'>Services</Link> </li>
-        <li> <Link to='/services'>About Friend's Care</Link> </li>
-
         {
             user?.uid ?
                 <>
@@ -28,6 +26,8 @@ const Header = () => {
                 </> :
                 <li> <Link to='/login'>Login</Link> </li>
         }
+        <li> <Link to='/about'>About Friend's Care</Link> </li>
+        <li> <Link to='/blog'>Blog</Link> </li>
 
     </>
     return (
