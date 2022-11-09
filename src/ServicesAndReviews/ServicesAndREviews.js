@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import NewComment from '../components/NewComments/NewComment';
 import Services from '../components/Services/Services';
 import Testimonials from '../components/Testimonials/Testimonials';
+import PrivateRoutes from '../Routes/PrivateRoutes/PrivateRoutes';
 
 const ServicesAndREviews = () => {
     return (
@@ -12,7 +13,7 @@ const ServicesAndREviews = () => {
             </Helmet>
             <Services></Services>
             <Testimonials></Testimonials>
-            <NewComment></NewComment>
+            <PrivateRoutes><NewComment></NewComment></PrivateRoutes>
         </div>
     );
 };
