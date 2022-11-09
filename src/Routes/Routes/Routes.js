@@ -4,6 +4,7 @@ import About from '../../components/About/About';
 import AddNewService from '../../components/AddNewService/AddNewService';
 import Blog from '../../components/Blog/Blog';
 import Home from '../../components/Home/Home';
+import LatestServices from '../../components/LatestServices/LatestServices';
 import Login from '../../components/Login/Login';
 import MyComments from '../../components/MyComments/MyComments';
 import NewComment from '../../components/NewComments/NewComment';
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
                 path: 'add-service',
                 element: <AddNewService></AddNewService>
+            },
+            {
+                path: '/latest',
+                element: <LatestServices></LatestServices>,
             }
         ]
     }

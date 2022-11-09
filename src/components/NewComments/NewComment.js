@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const NewComment = () => {
 
     const { user } = useContext(AuthContext);
-    // const location = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
     // const from = location.state?.from?.pathname || '/';
 
@@ -25,29 +25,38 @@ const NewComment = () => {
             message
         }
 
-        fetch('http://localhost:5000/comments', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(comment)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    form.reset('');
-                    toast(
-                        <div className="alert alert-success shadow-lg">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span>Your comment has been posted!</span>
-                            </div>
-                        </div>
-                    )
-                }
+        if (!user) {
+            navigate('/login')
+            alert('Please login to add a review.')
+            return
+        }
+
+        else {
+            fetch('http://localhost:5000/comments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(comment)
             })
-            .catch(error => console.error(error))
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        form.reset('');
+                        navigate('/services')
+                        toast(
+                            <div className="alert alert-success shadow-lg">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <span>Your comment has been posted!</span>
+                                </div>
+                            </div>
+                        )
+                    }
+                })
+                .catch(error => console.error(error))
+        }
     }
 
     return (
@@ -59,7 +68,8 @@ const NewComment = () => {
                 <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email ? user?.email : ''} className="input input-bordered input-ghost w-full" />
                 <textarea name="message" className='bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Type your comments here' id="" cols="30" rows="10"></textarea>
                 <br />
-                {
+                <input name="" className='btn' type="submit" value="Add Your Comment" />
+                {/* {
                     user?.uid ?
                         <>
                             <input name="" className='btn' type="submit" value="Add Your Comment" />
@@ -69,7 +79,7 @@ const NewComment = () => {
                             <Link to='/login'><button className='btn'>Login</button></Link>
 
                         </>
-                }
+                } */}
             </div>
         </form>
     );

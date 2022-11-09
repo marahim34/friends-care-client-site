@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from '../Carousel/Carousel'
-import Services from '../Services/Services';
+import LatestServices from '../LatestServices/LatestServices';
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
                 <title>Friend's Care :: Home</title>
             </Helmet>
             <Carousel></Carousel>
-            <Services></Services>
+            <LatestServices></LatestServices>
         </div>
     );
 };
