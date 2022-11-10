@@ -4,7 +4,7 @@ const WhyFC = () => {
     return (
         <section>
             <div className='text-center mb-10'>
-                <h1 className='text-5xl text-success font-bold'>Stay Connected</h1>
+                <h1 className='text-5xl text-success font-bold mt-5'>Stay Connected</h1>
             </div>
             <div className=" mx-auto px-4 sm:px-6">
                 <div className="pb-12 md:pb-20">

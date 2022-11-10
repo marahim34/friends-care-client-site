@@ -16,6 +16,7 @@ import UpdateComments from '../../components/UpdateComments/UpdateComments';
 import Main from '../../layout/Main';
 import ServicesAndREviews from '../../components/ServicesAndReviews/ServicesAndREviews';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
+import ErrorPage from '../../components/ErrorPage/ErrorPage';
 
 export const router = createBrowserRouter([
     {
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
                 path: '/newcoments',
                 element: <NewComment></NewComment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

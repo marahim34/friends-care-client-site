@@ -34,10 +34,13 @@ const MyCommentsCard = ({ myReview, handleDelete }) => {
                     </div>
                 </div>
             </td>
+
             <td>
-                {serviceName}
+                <div className="w-2/5">
+                    <p className='font-semibold text-green-600'>{serviceName.serviceName}</p>
+                    <p><small>{message}</small></p>
+                </div>
             </td>
-            <td>{message}</td>
             <th>
                 <Link to={`/update/${_id}`}><button className='btn'>Edit</button></Link>
             </th>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const NewComment = () => {

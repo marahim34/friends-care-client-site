@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Carousel from '../Carousel/Carousel'
 import LatestServices from '../LatestServices/LatestServices';
 import StayConnected from '../StayConnected/StayConnected';
+import Stories from '../Stories/Stories';
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Carousel></Carousel>
             <LatestServices></LatestServices>
+            <Stories></Stories>
             <StayConnected></StayConnected>
         </div>
     );

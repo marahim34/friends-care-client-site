@@ -8,7 +8,6 @@ const UpdateComments = () => {
     const handleUpdate = event => {
         event.preventDefault();
 
-
         fetch(`http://localhost:5000/comments/${updateComments._id}`, {
             method: 'PUT',
             headers: {
