@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import MyCommentsCard from '../MyCommentsCard.js/MyCommentsCard';
@@ -8,7 +9,7 @@ const MyComments = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comments?email=${user?.email}`, {
+        fetch(`https://friends-care-server-marahim34.vercel.app/testimonials?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('friends-token')}`
             }
@@ -29,10 +30,10 @@ const MyComments = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review')
         if (proceed) {
-            fetch(`http://localhost:5000/comments/${id}`, {
+            fetch(`https://friends-care-server-marahim34.vercel.app/comments/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    authorization: `Bearer ${localStorage.getItem('friends-care')}`
+                    authorization: `Bearer ${localStorage.getItem('friends-care')}`,
                 }
             })
                 .then(res => res.json())
@@ -55,6 +56,9 @@ const MyComments = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Friend's Care :: My Reviews</title>
+            </Helmet>
             {
                 myReviews.length === 0 ?
                     <p className='text-5xl font-semibold mt-10 mb-10 text-center'>No reviews were added</p> :

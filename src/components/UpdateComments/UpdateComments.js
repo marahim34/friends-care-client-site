@@ -11,7 +11,8 @@ const UpdateComments = () => {
         fetch(`http://localhost:5000/comments/${updateComments._id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('friends-token')}`
             },
             body: JSON.stringify(comment)
         })

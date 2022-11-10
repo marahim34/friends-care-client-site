@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 
 const AddNewService = () => {
@@ -19,7 +20,7 @@ const AddNewService = () => {
 
         console.log(newService);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://friends-care-server-marahim34.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,54 +48,59 @@ const AddNewService = () => {
     }
 
     return (
-        <form onSubmit={handleNewService} className="hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Do you want to offer something different?</h1>
-                    <p className="py-6">We're sorry to hear that you were unable to find what you were looking for on our website. Tell us what you think, and feel free to include your offerings.</p>
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-                    <div className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span name="serviceName" className="label-text">Service Name</span>
-                            </label>
-                            <input name='serviceName' type="text" placeholder="Service Name" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span name="picture" className="label-text">Service Photograph URL</span>
-                            </label>
-                            <input name='picture' type="text" placeholder="Service Photo URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span name="price" className="label-text">Offered Price/hr</span>
-                            </label>
-                            <input name='price' type="text" placeholder="Your offerings" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span name="about" className="label-text">Details About the Service</span>
-                            </label>
-                            <textarea name="about" className='bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Please include service details' id="" cols="30" rows="10" required></textarea>
+        <div>
+            <Helmet>
+                <title>Add a New Service</title>
+            </Helmet>
+            <form onSubmit={handleNewService} className="hero min-h-screen">
+                <div className="hero-content flex-col lg:flex-row">
+                    <div className="text-center lg:text-left">
+                        <h1 className="text-5xl font-bold">Do you want to offer something different?</h1>
+                        <p className="py-6">We're sorry to hear that you were unable to find what you were looking for on our website. Tell us what you think, and feel free to include your offerings.</p>
+                    </div>
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                        <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span name="serviceName" className="label-text">Service Name</span>
+                                </label>
+                                <input name='serviceName' type="text" placeholder="Service Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span name="picture" className="label-text">Service Photograph URL</span>
+                                </label>
+                                <input name='picture' type="text" placeholder="Service Photo URL" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span name="price" className="label-text">Offered Price/hr</span>
+                                </label>
+                                <input name='price' type="text" placeholder="Your offerings" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span name="about" className="label-text">Details About the Service</span>
+                                </label>
+                                <textarea name="about" className='bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Please include service details' id="" cols="30" rows="10" required></textarea>
 
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span name="rating" className="label-text">Rating</span>
-                            </label>
-                            <input name='rating' type="text" placeholder="Rating" className="input input-bordered" required />
-                        </div>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span name="rating" className="label-text">Rating</span>
+                                </label>
+                                <input name='rating' type="text" placeholder="Rating" className="input input-bordered" required />
+                            </div>
 
-                        <div className="form-control mt-6">
-                            <input className='btn' type="submit" value="Submit" />
+                            <div className="form-control mt-6">
+                                <input className='btn' type="submit" value="Submit" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    );
+            </form>
+
+        </div>);
 };
 
 export default AddNewService;

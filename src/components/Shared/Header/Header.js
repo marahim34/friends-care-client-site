@@ -8,7 +8,11 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                localStorage.removeItem('friends-token')
+            }
+
+            )
             .catch(error => console.error(error))
     }
 

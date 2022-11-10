@@ -7,7 +7,7 @@ const LatestServices = () => {
     const [latestServices, setLatestServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/latest')
+        fetch('https://friends-care-server-marahim34.vercel.app/latest')
             .then(res => res.json())
             .then(data => setLatestServices(data))
 

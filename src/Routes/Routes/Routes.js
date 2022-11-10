@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <Service></Service>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://friends-care-server-marahim34.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <UpdateComments></UpdateComments>,
-                loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.id}`)
+                loader: ({ params }) => fetch(`https://friends-care-server-marahim34.vercel.app/comments/${params.id}`)
             },
             {
                 path: '/about',
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('https://friends-care-server-marahim34.vercel.app/blogs')
             },
             {
                 path: 'add-service',
@@ -81,7 +81,7 @@ export const router = createBrowserRouter([
             {
                 path: '/newcoments',
                 element: <NewComment></NewComment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://friends-care-server-marahim34.vercel.app/services/${params.id}`)
             },
             {
                 path: '*',
