@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyCommentsCard = ({ myReview, handleDelete }) => {
-    const { _id, name, email, message, photo } = myReview;
+    const { _id, name, email, message, photo, serviceName } = myReview;
 
     return (
         <tr>
@@ -27,12 +27,15 @@ const MyCommentsCard = ({ myReview, handleDelete }) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-bold">{name}</div>
+                        <div className="font-bold">
+                            <p>{name}</p>
+                            <p>{email}</p>
+                        </div>
                     </div>
                 </div>
             </td>
             <td>
-                {email}
+                {serviceName}
             </td>
             <td>{message}</td>
             <th>

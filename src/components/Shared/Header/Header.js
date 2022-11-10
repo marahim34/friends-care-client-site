@@ -51,9 +51,12 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link className='btn' to='register'>Register Now</Link>
-            </div>
+            {
+                !user &&
+                <div className="navbar-end">
+                    <Link className='btn' to='register'>Register Now</Link>
+                </div>
+            }
         </div>
     );
 };

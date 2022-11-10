@@ -21,12 +21,29 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setUser(user);
                 form.reset();
                 setError('');
-                navigate(from, { replace: true })
 
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('friends-token', data.token)
+                    })
+
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error()
@@ -34,8 +51,7 @@ const Login = () => {
             })
             .finally(() => {
                 setLoading(false)
-            }
-            )
+            })
     }
 
     const handleGoogleSignIn = () => {
@@ -51,13 +67,13 @@ const Login = () => {
             <Helmet>
                 <title>Friend's Care :: Login</title>
             </Helmet>
-            <form onSubmit={handleLogIn} className="hero min-h-screen bg-base-200">
+            <form onSubmit={handleLogIn} className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Login with your credentials and let me know your required services.</p>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">

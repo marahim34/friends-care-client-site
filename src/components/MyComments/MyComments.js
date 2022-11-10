@@ -4,16 +4,27 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import MyCommentsCard from '../MyCommentsCard.js/MyCommentsCard';
 
 const MyComments = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comments?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/comments?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('friends-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logOut()
+                }
+                return res.json()
+            }
+            )
             .then(data => {
                 setMyReviews(data);
             })
     }, [user?.email])
+
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review')
@@ -38,6 +49,7 @@ const MyComments = () => {
         }
     }
 
+
     return (
         <div>
             <h3>Total Reviews: {myReviews.length}</h3>
@@ -50,9 +62,9 @@ const MyComments = () => {
 
                                 </label>
                             </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Name and Email Address</th>
+                            <th>Service Name</th>
+                            <th>Comments</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -14,7 +14,7 @@ import Services from '../../components/Services/Services';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import UpdateComments from '../../components/UpdateComments/UpdateComments';
 import Main from '../../layout/Main';
-import ServicesAndREviews from '../../ServicesAndReviews/ServicesAndREviews';
+import ServicesAndREviews from '../../components/ServicesAndReviews/ServicesAndREviews';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
 export const router = createBrowserRouter([
@@ -76,6 +76,11 @@ export const router = createBrowserRouter([
             {
                 path: '/latest',
                 element: <LatestServices></LatestServices>,
+            },
+            {
+                path: '/newcoments',
+                element: <NewComment></NewComment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import Testimonial from '../Testimonial/Testimonial';
 
 const Testimonials = () => {
