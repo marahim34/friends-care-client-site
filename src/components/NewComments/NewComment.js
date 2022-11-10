@@ -58,17 +58,28 @@ const NewComment = () => {
     }
 
     return (
-        <form onSubmit={handleComments}>
-            <h2 className="text-4xl"></h2>
-            <h4 className="text-3xl">Add your comments here</h4>
-            <div className='grid grid-cols-1 md:w-1/2 gap-4'>
-                <input name="name" type="text" placeholder="First Name" className="input input-ghost w-full input-bordered" />
-                <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email ? user?.email : ''} className="input input-bordered input-ghost w-full" />
-                <textarea name="message" className='bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Type your comments here' id="" cols="30" rows="10"></textarea>
-                <br />
-                <input name="" className='btn btn-success' type="submit" value="Add Your Comment" />
+
+        <div>
+            <div>
+                <h2 className="text-5xl text-success font-bold text-center mt-3 mb-10">Share Your Experience With Us</h2>
+
             </div>
-        </form>
+            <div className='bg-yellow-500 rounded justify-center'>
+                <div>
+                    <h4 className="text-5xl">Add your comments here</h4>
+                </div>
+                <form className='justify-center' onSubmit={handleComments}>
+
+                    <div>
+                        <input name="name" type="text" placeholder="First Name" className="input input-ghost w-3/5 input-bordered" />
+                        <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email ? user?.email : ''} className="input input-bordered input-ghost w-3/5 w-full" />
+                        <textarea name="message" className='bg-gray-100 rounded border border-gray-400 w-3/5 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Type your comments here' id="" cols="30" rows="10"></textarea>
+                        <br />
+                        <input name="" className='btn btn-success' type="submit" value="Add Your Comment" />
+                    </div>
+                </form >
+            </div>
+        </div>
     );
 };
 

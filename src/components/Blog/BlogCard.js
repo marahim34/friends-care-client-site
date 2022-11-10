@@ -3,7 +3,7 @@ import React from 'react';
 const BlogCard = ({ blogCard }) => {
     const { name, picture, date, title, about } = blogCard;
     return (
-        <div className="card md:bg-base-100 shadow-xl">
+        <div className="card bg-yellow-500 shadow-xl mt-10 mb-10">
             <figure className="px-10 pt-10">
                 <img src={picture} alt="Shoes" className="rounded-xl h-96" />
             </figure>
