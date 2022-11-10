@@ -8,7 +8,7 @@ const UpdateComments = () => {
     const handleUpdate = event => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/comments/${updateComments._id}`, {
+        fetch(`https://friends-care-server-marahim34.vercel.app/comments/${updateComments._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -30,7 +30,7 @@ const NewComment = () => {
         }
 
         else {
-            fetch('http://localhost:5000/comments', {
+            fetch('https://friends-care-server-marahim34.vercel.app/comments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
