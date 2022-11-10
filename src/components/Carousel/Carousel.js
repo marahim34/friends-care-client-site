@@ -24,7 +24,7 @@ const carouselItems = [
 
 const Carousel = () => {
     return (
-        <div className="carousel w-full py-10">
+        <div className="carousel w-full py-10 pt-0 pb-0">
             {
                 carouselItems.map(carouselItem => <CarouselItem key={carouselItem.id} carouselItem={carouselItem}></CarouselItem>)
             }

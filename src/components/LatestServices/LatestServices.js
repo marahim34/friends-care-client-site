@@ -14,18 +14,20 @@ const LatestServices = () => {
     }, [])
 
     return (
-        <div className='content-center items-center justify-center align-middle'>
+        <div className='w-full py-10 items-center justify-center'>
             <div>
-                <h1 className='text-5xl font-bold text-center'>Glimpse of Services</h1>
-            </div>
+                <div className='mb-10'>
+                    <h1 className='text-5xl font-bold text-center text-success'>Glimpse of Services</h1>
+                </div>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 items-center ml-4 gap-4'>
-                {
-                    latestServices.map(latestService => <LatestService key={latestService._id} latestService={latestService}></LatestService>)
-                }
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 justify-center ml-4 gap-4'>
+                    {
+                        latestServices.map(latestService => <LatestService key={latestService._id} latestService={latestService}></LatestService>)
+                    }
+                </div>
             </div>
-            <div className='flex items-center'>
-                <Link to='/services'><button className='btn items-center'>See All Services</button></Link>
+            <div className='mt-10 flex justify-center sm:items-center sm:ml-4 mx-auto'>
+                <Link to='/services'><button className='btn btn-success items-center'>See All Services</button></Link>
             </div>
         </div>
     );

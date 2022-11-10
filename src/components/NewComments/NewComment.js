@@ -4,7 +4,7 @@ import { Link, Navigate, useLoaderData, useLocation, useNavigate } from 'react-r
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const NewComment = () => {
-    const { serviceName } = useLoaderData();
+    const serviceName = useLoaderData();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -63,21 +63,10 @@ const NewComment = () => {
             <h4 className="text-3xl">Add your comments here</h4>
             <div className='grid grid-cols-1 md:w-1/2 gap-4'>
                 <input name="name" type="text" placeholder="First Name" className="input input-ghost w-full input-bordered" />
-                <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email ? user?.email : ''} readOnly className="input input-bordered input-ghost w-full" />
+                <input name="email" type="text" placeholder="Your Email" defaultValue={user?.email ? user?.email : ''} className="input input-bordered input-ghost w-full" />
                 <textarea name="message" className='bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white' placeholder='Type your comments here' id="" cols="30" rows="10"></textarea>
                 <br />
-                <input name="" className='btn' type="submit" value="Add Your Comment" />
-                {/* {
-                    user?.uid ?
-                        <>
-                            <input name="" className='btn' type="submit" value="Add Your Comment" />
-                        </> :
-                        <>
-                            <p>Please login to add a review</p>
-                            <Link to='/login'><button className='btn'>Login</button></Link>
-
-                        </>
-                } */}
+                <input name="" className='btn btn-success' type="submit" value="Add Your Comment" />
             </div>
         </form>
     );

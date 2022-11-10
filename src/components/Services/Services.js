@@ -14,8 +14,11 @@ const Services = () => {
     }, [])
 
     return (
-        <div>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 items-center ml-4 gap-4'>
+        <div >
+            <div className='mt-10'>
+                <h1 className='text-center text-5xl text-success font-bold'>Our All Services</h1>
+            </div>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 justify-center ml-4 gap-4'>
                 {
                     services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                 }

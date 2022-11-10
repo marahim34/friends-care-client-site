@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LatestService = ({ latestService }) => {
     const { _id, picture, serviceName, price, rating, about } = latestService;
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl bg-yellow-500">
             <img src={picture} className='h-44 w-full' alt="Shoes" />
             <div className="card-body">
                 <h2 className="card-title h-12 items-start">{serviceName}</h2>

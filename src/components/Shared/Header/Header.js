@@ -31,7 +31,7 @@ const Header = () => {
 
     </>
     return (
-        <div className="navbar">
+        <div className="navbar bg-yellow-500 items-center pt-3 pb-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">
-                    <Link to='/'><img src={logo} alt="" width={100} className='h-4/5' /></Link>
+                    <Link to='/'><img src={logo} alt="" width={80} className='h-3/5' /></Link>
 
                 </a>
             </div>
@@ -54,7 +54,7 @@ const Header = () => {
             {
                 !user &&
                 <div className="navbar-end">
-                    <Link className='btn' to='register'>Register Now</Link>
+                    <Link className='btn btn-success' to='register'>Register Now</Link>
                 </div>
             }
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Carousel from '../Carousel/Carousel'
 import LatestServices from '../LatestServices/LatestServices';
+import StayConnected from '../StayConnected/StayConnected';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>
             <Carousel></Carousel>
             <LatestServices></LatestServices>
+            <StayConnected></StayConnected>
         </div>
     );
 };
